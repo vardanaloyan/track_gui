@@ -2,25 +2,14 @@ import cv2
 import numpy as np
 import vehicles
 import time
-#from Tkinter import *
-#root = Tk()
-#root.title("Vehicle Detection")
-#root.geometry("400x450")
-#root.mainloop()
 
 cnt_up=0
 cnt_down=0
 
 
-cap=cv2.VideoCapture("surveillance.m4v")
-#cap=cv2.VideoCapture("Freewa.mp4")
-#Get width and height of video
-#cap = cv2.VideoCapture(0)
-#while True:
-#  ret,frame = cap.read()
-#   cv2.imshow('Video Profile',frame)
-#   if cv2.waitKey(1) & 0xFF==ord('q'):
-#       break
+cap=cv2.VideoCapture("video.mp4")
+# print cap.get(cv2.CAP_PROP_FPS)
+# cap.set(cv2.CAP_PROP_FPS, 25)
 w=cap.get(3)
 h=cap.get(4)
 frameArea=h*w
@@ -137,9 +126,6 @@ while(cap.isOpened()):
 
         for i in cars:
             cv2.putText(frame, str(i.getId()), (i.getX(), i.getY()), font, 0.3, i.getRGB(), 1, cv2.LINE_AA)
-
-
-
 
         str_up='UP: '+str(cnt_up)
         str_down='DOWN: '+str(cnt_down)
